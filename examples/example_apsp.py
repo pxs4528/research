@@ -1,4 +1,5 @@
 from algorithms.apsp import slow_apsp
+from algorithms.apsp_sssp import apsp_sssp
 from core.semiring import Semiring
 
 if __name__ == "__main__":
@@ -18,8 +19,14 @@ if __name__ == "__main__":
     ]
 
     n = len(W)
-    shortest_paths = slow_apsp(W, n, shortest_path_semiring)
+    shortest_paths = apsp_sssp(W, n, shortest_path_semiring)
 
-    print("All-Pairs Shortest Path Matrix:")
+    print("All-Pairs Shortest Path Matrix from generlised:")
     for row in shortest_paths:
+        print(row)
+
+    shortest_path = slow_apsp(W, n, shortest_path_semiring)
+
+    print("\nAll-Pairs Shortest Path Matrix from Normal:")
+    for row in shortest_path:
         print(row)

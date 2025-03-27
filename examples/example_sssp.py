@@ -1,4 +1,5 @@
 from algorithms.sssp import single_source_shortest_path
+from algorithms.apsp_sssp import apsp_sssp
 from core.semiring import Semiring
 
 if __name__ == "__main__":
@@ -25,4 +26,9 @@ if __name__ == "__main__":
     distances = single_source_shortest_path(W, source_vertex, n, shortest_path_semiring)
 
     print(f"Shortest distances from vertex {source_vertex}:")
+    print(distances)
+
+    distances = apsp_sssp(W, n, shortest_path_semiring, source=source_vertex)
+
+    print(f"\nShortest distances from vertex {source_vertex} using generlised:")
     print(distances)

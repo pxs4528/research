@@ -4,7 +4,6 @@ from core.semiring import Semiring
 T = TypeVar("T")
 
 
-
 def single_source_shortest_path(
     W: List[List[T]], source: int, n: int, semiring: Semiring
 ) -> List[T]:
@@ -16,8 +15,8 @@ def single_source_shortest_path(
         d_new = [semiring.zero] * n
         for i in range(n):
             for j in range(n):
-                d_new[i] = semiring.add(d_new[i], semiring.multiply(W[i][j], d[j]))
+                d_new[i] = semiring.add(
+                    d_new[i], semiring.multiply(W[i][j], d[j]))
         d = d_new
 
     return d
-
