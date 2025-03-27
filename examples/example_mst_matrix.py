@@ -1,9 +1,9 @@
-from algorithms.mst import mst_matrix_multiplication
+from algorithms.mst_Boruvka import slow_mst
 from core.semiring import Semiring
 
 if __name__ == "__main__":
     inf = float('inf')
-    
+
     mst_semiring = Semiring(
         add=min,
         multiply=lambda x, y: x + y if x != inf and y != inf else inf,
@@ -19,9 +19,9 @@ if __name__ == "__main__":
     ]
 
     n = len(W)
-    
-    mst_edges = mst_matrix_multiplication(W, n, mst_semiring)
+    mst_edges = slow_mst(W, n, mst_semiring)
 
-    print("Edges in the Minimum Spanning Tree:")
-    for u, v, weight in mst_edges:
-        print(f"({u}, {v}) with weight {weight}")
+    print(mst_edges)
+    # print("Edges in the Minimum Spanning Tree:")
+    # for u, v, weight in sorted(mst_edges):
+    #     print(f"({u}, {v}) with weight {weight}")
