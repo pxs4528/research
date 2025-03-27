@@ -3,7 +3,7 @@ from core.semiring import Semiring
 
 if __name__ == "__main__":
     inf = float('inf')
-    
+
     mst_semiring = Semiring(
         add=min,
         multiply=lambda x, y: x + y if x != inf and y != inf else inf,
@@ -14,14 +14,13 @@ if __name__ == "__main__":
     W = [
         [inf, 2, inf, 6],
         [2, inf, 3, 8],
-        [inf, 3, inf, inf],
-        [6, 8, inf, inf]
+        [inf, 3, inf, 7],
+        [6, 8, 7, inf]
     ]
 
     n = len(W)
-    
     mst_edges = mst_matrix_boruvka(W, n, mst_semiring)
 
     print("Edges in the Minimum Spanning Tree:")
-    for u, v, weight in mst_edges:
+    for u, v, weight in sorted(mst_edges):
         print(f"({u}, {v}) with weight {weight}")
