@@ -1,6 +1,9 @@
-from algorithms.sssp import single_source_shortest_path
-from algorithms.apsp_sssp import apsp_sssp
-from core.semiring import Semiring
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.algorithms.generalized import apsp_sssp
+from src.core.semiring import Semiring
 
 if __name__ == "__main__":
     inf = float('inf')
@@ -23,12 +26,13 @@ if __name__ == "__main__":
 
     n = len(W)
 
-    distances = single_source_shortest_path(W, source_vertex, n, shortest_path_semiring)
+    # Using the generalized APSP/SSSP function with source parameter
+    distances = apsp_sssp(W, n, shortest_path_semiring, source=source_vertex)
 
     print(f"Shortest distances from vertex {source_vertex}:")
     print(distances)
 
     distances = apsp_sssp(W, n, shortest_path_semiring, source=source_vertex)
 
-    print(f"\nShortest distances from vertex {source_vertex} using generlised:")
+    print(f"\nShortest distances from vertex {source_vertex} using generalized:")
     print(distances)
