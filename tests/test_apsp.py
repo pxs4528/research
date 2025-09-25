@@ -1,5 +1,5 @@
 import unittest
-from algorithms.apsp import slow_apsp
+from algorithms_old.apsp import slow_apsp
 from core.semiring import Semiring
 
 class TestAPSP(unittest.TestCase):

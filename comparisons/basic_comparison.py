@@ -38,56 +38,56 @@ def compare_algorithms_on_file(file_path: str):
         n = len(W)
         print(f"Matrix size: {n}x{n}")
         
-        print(f"\n📊 ALGORITHM COMPARISON RESULTS:")
+        print(f"\n ALGORITHM COMPARISON RESULTS:")
         print("-" * 50)
         
         # 1. All-Pairs Shortest Path Comparison
-        print(f"\n🔄 ALL-PAIRS SHORTEST PATH (APSP):")
+        print(f"\n ALL-PAIRS SHORTEST PATH (APSP):")
         
         # Generalized approach
         result_gen, time_gen = time_algorithm(apsp_sssp, W, n, SHORTEST_PATH_SEMIRING)
-        print(f"  ⚡ Generalized (Semiring):     {time_gen:.2f}ms")
+        print(f"   Generalized (Semiring):     {time_gen:.2f}ms")
         
         # Traditional approach
         result_trad, time_trad = time_algorithm(floyd_warshall, W)
-        print(f"  🔧 Traditional (Floyd-Warshall): {time_trad:.2f}ms")
+        print(f"   Traditional (Floyd-Warshall): {time_trad:.2f}ms")
         
         # Slow approach for comparison
         result_slow, time_slow = time_algorithm(slow_apsp, W, n, SHORTEST_PATH_SEMIRING)
-        print(f"  🐌 Slow APSP (Matrix Powers):   {time_slow:.2f}ms")
+        print(f"   Slow APSP (Matrix Powers):   {time_slow:.2f}ms")
         
         # Check if results are equivalent
         results_match = compare_matrices(result_gen, result_trad)
-        print(f"  ✅ Results match: {results_match}")
+        print(f"   Results match: {results_match}")
         
         # Performance comparison
         if time_trad > 0:
             speedup = time_trad / time_gen if time_gen > 0 else float('inf')
-            print(f"  📈 Traditional vs Generalized: {speedup:.2f}x {'faster' if speedup > 1 else 'slower'}")
+            print(f"   Traditional vs Generalized: {speedup:.2f}x {'faster' if speedup > 1 else 'slower'}")
         
         # 2. Single-Source Shortest Path Comparison
-        print(f"\n🎯 SINGLE-SOURCE SHORTEST PATH (SSSP) from node 0:")
+        print(f"\n SINGLE-SOURCE SHORTEST PATH (SSSP) from node 0:")
         
         # Generalized approach
         result_gen_sssp, time_gen_sssp = time_algorithm(apsp_sssp, W, n, SHORTEST_PATH_SEMIRING, source=0)
-        print(f"  ⚡ Generalized (Semiring):  {time_gen_sssp:.2f}ms")
+        print(f"   Generalized (Semiring):  {time_gen_sssp:.2f}ms")
         
         # Traditional approach
         result_trad_sssp, time_trad_sssp = time_algorithm(dijkstra, W, 0)
-        print(f"  🔧 Traditional (Dijkstra):   {time_trad_sssp:.2f}ms")
+        print(f"   Traditional (Dijkstra):   {time_trad_sssp:.2f}ms")
         
         # Check if results are equivalent
         sssp_match = compare_vectors(result_gen_sssp[0], result_trad_sssp)
-        print(f"  ✅ Results match: {sssp_match}")
+        print(f"   Results match: {sssp_match}")
         
         # Performance comparison
         if time_trad_sssp > 0:
             sssp_speedup = time_trad_sssp / time_gen_sssp if time_gen_sssp > 0 else float('inf')
-            print(f"  📈 Traditional vs Generalized: {sssp_speedup:.2f}x {'faster' if sssp_speedup > 1 else 'slower'}")
+            print(f"   Traditional vs Generalized: {sssp_speedup:.2f}x {'faster' if sssp_speedup > 1 else 'slower'}")
         
         # Display small results for verification
         if n <= 6:
-            print(f"\n📋 SAMPLE RESULTS (first 3 rows/elements):")
+            print(f"\n SAMPLE RESULTS (first 3 rows/elements):")
             print(f"  APSP - Generalized:  {format_matrix_sample(result_gen, 3)}")
             print(f"  APSP - Traditional:  {format_matrix_sample(result_trad, 3)}")
             print(f"  SSSP - Generalized:  {format_vector_sample(result_gen_sssp[0], 6)}")
@@ -173,30 +173,6 @@ def main():
             overall_results[file_path] = "Completed"
         else:
             print(f"⚠️  File {file_path} not found, skipping...")
-    
-    # Summary
-    print(f"\n{'='*70}")
-    print("📊 COMPARISON SUMMARY")
-    print(f"{'='*70}")
-    print(f"✅ Compared algorithms on {len(overall_results)} files")
-    print(f"📈 Key Insights:")
-    print(f"   • Generalized semiring approach provides unified framework")
-    print(f"   • Traditional algorithms often optimized for specific problems")
-    print(f"   • Performance varies based on matrix size and sparsity")
-    print(f"   • Both approaches should produce identical results")
-    
-    print(f"\n🎯 ALGORITHM CHARACTERISTICS:")
-    print(f"   Generalized (Semiring-based):")
-    print(f"   ✓ Unified framework for multiple problems")
-    print(f"   ✓ Easy to extend to new semirings")
-    print(f"   ✓ Mathematical elegance and generality")
-    print(f"   ✗ May have slight overhead due to abstraction")
-    
-    print(f"\n   Traditional (Problem-specific):")
-    print(f"   ✓ Highly optimized for specific algorithms")
-    print(f"   ✓ Well-known and widely studied")
-    print(f"   ✓ Often have better constant factors")
-    print(f"   ✗ Separate implementation for each problem")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-from algorithms.mst import mst_matrix_multiplication
+from algorithms_old.mst import mst_matrix_multiplication
 from core.semiring import Semiring
 
 if __name__ == "__main__":

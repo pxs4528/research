@@ -1,4 +1,4 @@
-from algorithms.mst_Boruvka import slow_mst
+from algorithms_old.mst_Boruvka import slow_mst
 from core.semiring import Semiring
 
 if __name__ == "__main__":

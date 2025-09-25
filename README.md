@@ -2,7 +2,7 @@
 
 A comprehensive framework for comparing generalized semiring-based graph algorithms with traditional implementations.
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 research/
@@ -26,61 +26,48 @@ research/
 └── main.py                     # Main entry point
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Run Basic Tests
+
 ```bash
 python main.py test
 ```
 
 ### Show Project Structure
+
 ```bash
 python main.py structure
 ```
 
 ### Run Comparisons
+
 ```bash
 # Basic comparison
 python comparisons/basic_comparison.py
-
-# Detailed performance analysis
-python comparisons/detailed_comparison.py
-
-# Code structure comparison
-python comparisons/code_comparison.py
 ```
 
-## 📊 Algorithm Comparison Features
-
-### Generalized Approach (Semiring-based)
-- ✅ **Unified Framework**: One algorithm implementation for multiple problems
-- ✅ **High Extensibility**: Easy to add new problem types
-- ✅ **Mathematical Elegance**: Clean algebraic structure
-- ✅ **Code Reuse**: 90%+ code sharing across problems
-
-### Traditional Approach (Problem-specific)
-- ✅ **Performance Optimized**: Often faster with better constant factors
-- ✅ **Well-Known**: Industry standard algorithms
-- ✅ **Graph-Aware**: Can exploit sparsity and other graph properties
-
-## 🧪 Supported Algorithms
+## Supported Algorithms
 
 ### Generalized Implementations
+
 - All-Pairs Shortest Path (APSP)
-- Single-Source Shortest Path (SSSP) 
+- Single-Source Shortest Path (SSSP)
 - Widest Path
 - Path Reachability
 - Path Counting
 
 ### Traditional Implementations
+
 - Floyd-Warshall (APSP)
 - Dijkstra (SSSP)
 - Bellman-Ford (SSSP)
 - Custom Widest Path
 
-## 📈 Testing Framework
+## Testing Framework
 
 The `AlgorithmTester` class provides:
+
 - Automated test file discovery
 - Performance timing and comparison
 - Result verification
@@ -90,6 +77,7 @@ The `AlgorithmTester` class provides:
 ## 🔧 Usage Examples
 
 ### Basic Testing
+
 ```python
 from src import AlgorithmTester, SHORTEST_PATH_SEMIRING
 
@@ -99,6 +87,7 @@ tester.display_results()
 ```
 
 ### Custom Algorithm Comparison
+
 ```python
 from src import apsp_sssp, floyd_warshall, SHORTEST_PATH_SEMIRING
 from src.utils.matrix_utils import load_mtx_as_dense_list
@@ -113,6 +102,7 @@ result_trad = floyd_warshall(W)
 ```
 
 ### Adding New Semirings
+
 ```python
 from src.core.semiring import Semiring
 
@@ -127,62 +117,3 @@ max_plus_semiring = Semiring(
 # Use with generalized algorithms
 result = apsp_sssp(W, n, max_plus_semiring)
 ```
-
-## 📁 File Organization
-
-### Source Code (`src/`)
-- **Modular Design**: Separated concerns into core, algorithms, and utils
-- **Clean Imports**: Easy to import specific components
-- **Type Hints**: Full type annotation support
-
-### Test Data (`test_data/`)
-- **Matrix Market Files**: Standard format for sparse matrices
-- **Generated Tests**: Automatically created test cases
-- **Real-world Data**: Actual graph datasets
-
-### Comparisons (`comparisons/`)
-- **Standalone Scripts**: Independent comparison tools
-- **Multiple Perspectives**: Performance, code structure, and extensibility
-- **Visual Output**: Formatted tables and charts
-
-## 🎯 When to Use Each Approach
-
-### Choose Generalized When:
-- Research or educational environments
-- Need to solve multiple similar problems
-- Long-term maintainability is important
-- Mathematical correctness is critical
-
-### Choose Traditional When:
-- Production systems with performance requirements
-- Working with large, sparse graphs
-- Team familiar with classical algorithms
-- Memory constraints are tight
-
-## 🔄 Migration from Old Structure
-
-The old monolithic `testing_implementations.py` has been restructured into:
-- Core semiring logic → `src/core/semiring.py`
-- Algorithm implementations → `src/algorithms/`
-- Utilities → `src/utils/`
-- Comparison scripts → `comparisons/`
-
-All functionality is preserved with improved organization and extensibility.
-
-## 🏃‍♂️ Getting Started
-
-1. **Run the main script** to see the project structure and run basic tests:
-   ```bash
-   python main.py
-   ```
-
-2. **Generate test data** by running any comparison script:
-   ```bash
-   python comparisons/basic_comparison.py
-   ```
-
-3. **Explore the source code** in the `src/` directory to understand the implementations.
-
-4. **Create custom comparisons** using the framework components.
-
-This clean structure makes it easy to understand, extend, and maintain the codebase while providing comprehensive tools for algorithm research and comparison.

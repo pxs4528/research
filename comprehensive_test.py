@@ -190,18 +190,5 @@ def main():
     else:
         print("   ⚠️  Some tests failed - investigation needed")
         print("   📝 Check individual test results above for details")
-    
-    print(f"\n🔬 TECHNICAL VALIDATION:")
-    print(f"   • Generalized algorithms use semiring operations (min, +, ∞, 0)")
-    print(f"   • Traditional algorithms use problem-specific optimizations")
-    print(f"   • Mathematical equivalence ensures identical outputs")
-    print(f"   • This validates the correctness of the generalized approach")
-    
-    print(f"\n🚀 BENEFITS OF GENERALIZED APPROACH:")
-    print(f"   ✓ Single implementation handles multiple problems (APSP, SSSP, MST)")
-    print(f"   ✓ Easy to extend to new semirings and problem types")
-    print(f"   ✓ Mathematical elegance and unified framework")
-    print(f"   ✓ Proven correctness through equivalence testing")
-
 if __name__ == "__main__":
     main()

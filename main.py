@@ -88,8 +88,6 @@ def print_usage():
     
     print("\n COMPARISON SCRIPTS:")
     print("   python comparisons/basic_comparison.py      - Basic comparison")
-    print("   python comparisons/detailed_comparison.py   - Detailed analysis") 
-    print("   python comparisons/code_comparison.py       - Code structure comparison")
 
 
 if __name__ == "__main__":
