@@ -141,11 +141,11 @@ def format_vector_sample(vector, max_elements=6):
 
 def main():
     """Main comparison function."""
-    print("🔬 GENERALIZED vs TRADITIONAL ALGORITHMS COMPARISON")
+    print(" GENERALIZED vs TRADITIONAL ALGORITHMS COMPARISON")
     print("="*60)
     
     # Generate some test files for comparison
-    print("\n📁 Generating test matrices...")
+    print("\n Generating test matrices...")
     os.makedirs("test_data", exist_ok=True)
     
     generate_random_mtx_file("test_data/comparison_small.mtx", n=5, density=0.4, symmetric=True)
